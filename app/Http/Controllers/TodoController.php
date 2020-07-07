@@ -28,6 +28,11 @@ class TodoController extends Controller
     {
     	return view('todos.create');
     }
+
+     public function show(Todo $todo)
+    {
+        return view('todos.show', compact('todo'));
+    }
     //Visit:app/http/Request/TodoCreateRequest.php
     public function store(TodoCreateRequest $request)//TodoCreateRequest=For validation
     {
@@ -68,8 +73,11 @@ class TodoController extends Controller
 
 
         
-        $userId = auth()->id();
-        $request['user_id'] = $userId ;
+        // $userId = auth()->id();
+        // $request['user_id'] = $userId ;
+
+        // dd($request->all());
+
         auth()->user()->todos()->create($request->all());
         return redirect(route('todo.index'))->with('message','ToDo Created Sucessfully !');
     }
@@ -85,7 +93,8 @@ class TodoController extends Controller
     public function update(TodoCreateRequest $request, Todo $todo)//TodoCreatedRequest refer line :24(Store function !)
     //By putting TodoCreateRequest-Same validation can be applied to this field
     {
-        $todo->update (['title' => $request->title]);
+        $todo->update (['title' => $request->title,'description' => $request->description]);
+        
         return redirect(route('todo.index'))->with('message','Updated !');
         // dd($request->all ());
     }
