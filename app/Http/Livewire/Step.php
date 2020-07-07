@@ -14,6 +14,10 @@ class Step extends Component
 
 		$this-> steps++;
 	}
+	public function remove()
+	{
+		$this-> steps--;
+	}
 
     public function render()
     {

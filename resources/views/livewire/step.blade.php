@@ -7,6 +7,7 @@
 			@for($i=0; $i < $steps; $i++)
 			<div class="flex justify-center py-2">	
 				<input type="text" name="stpe" class="px-2 py-1 border rounded" placeholder="{{ 'Describe Steps ' . ($i+1) }}">
+				<span class="fas fa-times text-red-400 p-2 " wire:click="remove"> </span>
 			</div>
 				
 			@endfor
