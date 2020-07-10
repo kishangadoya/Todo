@@ -7,15 +7,18 @@ use Livewire\Component;
 
 class Step extends Component
 {
-	public $steps = 0;
+	public $steps = [];
 
 	public function increment()
 	{
 
-		$this-> steps++;
+		$this-> steps[] = count($this->steps)+1;
 	}
-	public function remove()
+
+	public function remove($index)
 	{
+		// dd($index);
+		unset($this->steps[$index]);
 		$this-> steps--;
 	}
 
