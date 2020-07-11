@@ -12,7 +12,7 @@ class Todo extends Model
 
 public function steps()
 {
-	return $this->hasMany(Step::class)
+	return $this->hasMany(Step::class);
 }
 
 

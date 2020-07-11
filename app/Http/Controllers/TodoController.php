@@ -31,6 +31,7 @@ class TodoController extends Controller
 
      public function show(Todo $todo)
     {
+        // return $todo->steps->count();
         return view('todos.show', compact('todo'));
     }
     //Visit:app/http/Request/TodoCreateRequest.php
@@ -78,7 +79,15 @@ class TodoController extends Controller
 
         // dd($request->all());
         // dd($request->all());
-        auth()->user()->todos()->create($request->all());
+        $todo = auth()->user()->todos()->create($request->all());
+
+        if ($request -> step) {
+            foreach ($request -> step as $step) {
+                $todo->steps()->create(['name' => $step]);
+            }
+        }
+        // $todo = steps()->create();
+        // dd($todo);
         return redirect(route('todo.index'))->with('message','ToDo Created Sucessfully !');
     }
  	public function edit(Todo $todo)
@@ -110,6 +119,7 @@ class TodoController extends Controller
     }
      public function destroy(Todo $todo)
     {
+        $todo->steps->each->delete();
         $todo->delete();
         return redirect()->back()->with('message','Task deleted !');
     }

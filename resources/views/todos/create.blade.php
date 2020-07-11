@@ -20,13 +20,7 @@
 			</div>
 
 			<div class="py-2">
-
-				
 				@livewire('step')
-				
-			
-				
-				
 			</div>
 		
 			<div class="py-1">
