@@ -16,7 +16,6 @@
 		
 	</style>
 
- 	 @livewireStyles
 	<title>Todos</title>
 </head>
 <body>
@@ -26,7 +25,7 @@
 		</div>
 	</div>
 
-	    @livewireScripts
+	    
 
 </body>
 </html>

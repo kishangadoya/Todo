@@ -18,10 +18,6 @@
 			<div class="py-1">
 				<textarea name="description" class="p-2 rounded border" placeholder="Description"></textarea>
 			</div>
-
-			<div class="py-2">
-				@livewire('step')
-			</div>
 		
 			<div class="py-1">
 				<input type="submit" name="submit" value="Create" class="p-2 border rounded">			
